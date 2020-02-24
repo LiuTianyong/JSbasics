@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        /*标签选择器*/
+        div {
+            color: #FF0000;
+        }
+
+        p{
+            color: aqua;
+        }
+        /*类选择器*/
+
+        .div1{
+            color: deepskyblue;
+        }
+        /*id选择器*/
+        #p1{
+            font-size: 50px;
+        }
+        /*通配符*/
+        *{
+            text-decoration:underline;
+        }
+        /*后代选择器*/
+        #div1 p{
+            font-style: italic;
+        }
+        /*子代选择器*/
+        #div1 > p{
+            background-color: #FF0000;
+        }
+        /*相邻兄弟选择器*/
+        p+div{
+            border: 20px solid red;
+        }
+        /*普通兄弟选择器*/
+        p~div {
+            font-size: 40px;
+        }
+        /*群组选择器*/
+        .div1,#p1{
+            background-color: chartreuse;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">111
+    <div>222
+        <p class="div1">333</p>
+        <div class="div1">444</div>
+    </div>
+    <p id="p1">555</p>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
