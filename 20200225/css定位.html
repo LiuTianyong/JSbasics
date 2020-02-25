@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>position 和 float</title>
+
+    <style type="text/css">
+        *{
+            margin: 0;
+        }
+        div.box{
+            width: 200px;
+            height: 500px;
+            border: 1px solid blueviolet;
+            position: relative;
+            top: 200px;
+            left: 200px;
+
+        }
+        div.box>div{
+            width: 100px;
+            height: 100px;
+            border: 1px solid rgb(0, 0, 0);
+        }
+        .static_box{
+            background-color: #ff1600;
+            /*static 静态定位 默认值 */
+            position: static;
+        }
+        /*relation 相对定位：元素相对于原来位置*/
+
+        .relation_boc{
+            background-color: #00ff25;
+            position: relative;
+            top: 10px;
+            left: 10px;
+        }
+        /*绝对定位 相对父元素*/
+        .absolute_box{
+            background-color: #ffed00;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        /*fixedn 固定定位*/
+        .fixed_box{
+            background-color: #1000a5;
+            position: fixed;
+            top: 100px;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="box">
+        <div class="static_box">1</div>
+        <div class="relation_boc">2</div>
+        <div class="absolute_box">3</div>
+        <div class="fixed_box">4</div>
+    </div>
+    
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
