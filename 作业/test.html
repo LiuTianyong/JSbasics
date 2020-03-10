@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+		<title>Sign up</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				height: 100vh;
+				border: 1px solid black;
+			}
+			/* 整体样式结构 */
+			.signup-wholebody{
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+			.signup-content{
+				display: flex;
+				flex-direction: row;
+				margin-top: 100px;
+			}
+			.line1{
+				width: 100px;
+				height: 250px;
+				/* border: 1px solid black; */
+				color: grey;
+				font-size: 14px;
+			}
+			.line1>p{
+				height: 50px;
+				/* border: 1px solid black; */
+			}
+			.line2{
+				width: 220px;
+				height: 350px;
+				/* border: 1px solid red; */
+				margin-top: -6px;
+				margin-left: 50px;
+			}
+			.line2>div{
+				height: 50px;
+				/* border: 1px solid red; */
+			}
+			.line3{
+				width: 300px;
+				height: 250px;
+				/* border: 1px solid blue; */
+				margin-left: 10px;
+				color: grey;
+				font-size: 14px;
+			}
+			.line3>p{
+				height: 50px;
+				/* border: 1px solid blue; */
+			}
+			/* 整体样式结构 */
+			/* line2 */
+			input{
+				width: 210px;
+				height: 30px;
+				border: 1px solid lightgrey;
+			}
+			.input5{
+				width: 110px;
+			}
+			.confirm-agreement{
+				display: flex;
+				flex: row;
+				
+			}
+			.checkbox{
+				height: 16px;
+				width: 16px;
+			}
+			.agreement1{
+				font-size: 12px;
+				height: 190px;
+			}
+			.agreement2{
+				font-size: 12px;
+			}
+			.agreement2:hover{
+				color: #F12829;
+			}
+			.agreement2:visited{
+				color: #f34895;
+			}
+			.signup-now{
+				width: 210px;
+				height: 40px;
+				font-size: 16px;
+				background-color: #f12829;
+				border-radius: 4px;
+				color: white;
+				border: none;
+			}
+			/* line2 */
+		</style>
+	</head>
+	<body>
+		
+		<div class="signup-wholebody">
+			<div class="signup-content">
+				<div class="line1">
+					<p>用户名：</p>
+					<p>请设置密码：</p>
+					<p>请确认密码：</p>
+					<p>验证手机：</p>
+					<p>短信验证码：</p>
+				</div>
+				<div class="line2">
+					<div class="username">
+						<input id="text1" type="text" maxlength="20" placeholder="  用户名" onfocus="this.placeholder=''" onblur="this.placeholder='  用户名'">
+					</div>
+					<div class="password">
+						<input id="text2" type="text" maxlength="20" placeholder="  请输入密码" onfocus="this.placeholder=''" onblur="this.placeholder='  请输入密码'">
+					</div>
+					<div class="confirm-psw">
+						<input id="text3" type="text" maxlength="20" placeholder="  再次输入密码" onfocus="this.placeholder=''" onblur="this.placeholder='  再次输入密码'">
+					</div>
+					<div class="confirm-cellphone">
+						<input id="text4" type="text" maxlength="11" placeholder="  请输入手机号" onfocus="this.placeholder=''" onblur="this.placeholder='  请输入手机号'">
+					</div>
+					<div class="code">
+						<input id="text5" type="text" class="input5" maxlength="4" placeholder="  请输入验证码" onfocus="this.placeholder=''" onblur="this.placeholder='  请输入验证码'">
+						<button style="font-size: 10px; width: 95px; height: 30px;">获取短信验证码</button>
+					</div>
+					<div class="confirm-agreement">
+						<input type="checkbox" class="checkbox" id="checkbox">
+						<div class="agreement1">我已阅读并同意</div>
+						<a href="#" class="agreement2">《京东用户注册协议》</a>
+					</div>
+					<div class="signup-button"><input type="button" value="立即注册" id="signup-now" class="signup-now" onclick="clearContent()"></div>
+				</div>
+				<div class="line3">
+					<p>4-20位字符，支持汉字、字母和数字组合</p>
+					<p>6-20位字符</p>
+					<p>6-20位字符</p>
+					<p>可以通过手机找回密码</p>
+					<p>填写验证码</p>
+				</div>
+			</div>
+		</div>
+	<script type="text/javascript">
+		var text1 = document.getElementById('text1');
+		var text2 = document.getElementById('text2');
+		var text3 = document.getElementById('text3');
+		var text4 = document.getElementById('text4');
+		var text5 = document.getElementById('text5');
+		var checkbox = document.getElementById('checkbox');
+		var agreement1 = document.getElementsByClassName('agreement1');
+		function clearContent(){
+			text1.value = '';
+			text2.value = '';
+			text3.value = '';
+			text4.value = '';
+			text5.value = '';
+			checkbox.checked = false;
+		}
+		// 无效
+		agreement1.onclick = function(){
+			checkbox.checked = true;
+		}
+	</script>	
+	</body>
+</html>
