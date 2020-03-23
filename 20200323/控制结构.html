@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--顺序结构-->
+<!--选择结构-->
+<!--循环结构-->
+<form>
+    用户名：<input id="username" type="text">
+    密码:<input id="password" type="text">
+<button onclick="checkValue()">提交</button>
+</form>
+<script type="text/javascript">
+
+    var username = document.getElementById("username");
+    var password = document.getElementById("password");
+
+    function checkValue() {
+        if (username.value == "admin" && password.value == "123456"){
+            alert("登陆成功");
+            return true;
+        }else {
+            alert("登陆失败");
+            return false;
+        }
+    }
+
+</script>
+
+</body>
+</html>
