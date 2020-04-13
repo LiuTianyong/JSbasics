@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="demo">
+			<p>111</p>
+			<p>222</p>
+			<div>333</div>
+		</div>
+		<script type="text/javascript">
+			var newSpan = document.createElement("span"); //创建元素节点
+			var newText = document.createTextNode("Hello!"); //创建文本节点
+			newSpan.appendChild(newText); //appendChild()方法可以将新的节点插入到当前节点中，最为其最后一个子节点
+			//console.log(newSpan.innerHTML);
+			
+			document.body.appendChild(newSpan);
+			console.log(document.body.lastChild.nodeName);
+			
+			var demo = document.getElementById("demo");
+			demo.appendChild(newSpan);
+			console.log(demo.lastChild.innerHTML);
+			
+			var oldNode = demo.children[1];
+			console.log(oldNode.innerHTML);
+			//console.log(demo.children.length);
+			demo.insertBefore(newSpan,oldNode); //insertBefore()
+			console.log(demo.children[1].innerHTML);
+			//console.log(demo.children.length);
+			
+		</script>
+	</body>
+</html>

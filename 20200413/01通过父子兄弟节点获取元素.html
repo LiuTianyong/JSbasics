@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			<span>000</span>
+			<div id="target">
+				<p>f111</p>
+				<p>l111</p>
+			</div>
+			<p>222</p>
+			<span>333</span>
+		</div>
+		
+		<script type="text/javascript">
+			var target = document.getElementById("target");
+			//document.write(target.innerHTML);
+			
+			var lastChild = target.lastChild; //返回当前节点的最后一个子节点（包含文本节点）
+			console.log(lastChild.nodeType);
+			var lastChild2 = target.lastElementChild;//返回当前节点的最后一个元素子节点
+			console.log(lastChild2.innerHTML);
+			
+			var parentNode = target.parentNode; //获取当前节点的父节点
+			console.log(parentNode.getAttribute("id"));
+			
+			var nextNode = target.nextSibling; //返回当前元素的下一节点（含文本节点）
+			console.log(lastChild.nodeType);
+			var nextNode2 = target.nextElementSibling; //返回当前元素的下一元素节点
+			console.log(nextNode2.nodeName);
+			
+			var previousNode = target.previousSibling; //返回当前元素的上一节点（含文本节点）
+			console.log(previousNode.nodeValue);
+			var previousNode2 = target.previousElementSibling; //返回当前元素的上一元素节点
+			console.log(previousNode2.nodeName);
+		</script>
+	</body>
+</html>
