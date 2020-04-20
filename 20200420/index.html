@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="demo">
+        <p>1111</p>
+        <div>2222</div>
+    </div>
+<script type="text/javascript">
+    var demo = document.getElementById("demo");
+    console.log(demo.childNodes.length);
+    console.log(demo.children.length);
+
+    var child1 = demo.children[1];
+    console.log(child1.innerHTML);
+    demo.removeChild(child1);
+    console.log(demo.childNodes.length);
+    console.log(demo.children.length);
+
+</script>
+</body>
+</html>
