@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        window.onload = function () {
+            function showInfo() {
+                var form = document.getElementsByTagName("p")
+                var name = form[0].value;
+                console.log(name)
+            }
+        }
+    </script>
+</head>
+<body>
+    <p>
+        <span>用户名:<input type="text"></span>
+    </p>
+    <p>
+        性别:
+        <input type="radio" name="sex" value="男"> 男
+        <input type="radio" name="sex" value="女"> 女
+    </p>
+    <p>
+        年龄: <input type="text">
+    </p>
+    <p>
+        <input type="button" value="显示用户输入的内容">
+    </p>
+</body>
+
+</html>

@@ -3,13 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style type="text/css">
+        p{
+            color: #dff800;
+        }
+    </style>
 </head>
 <body>
 
 <img src="image/1.jpg" height="1920" width="1080"/>
+<p align="center">你好！！！</p>
 </body>
 <script>
-    var img = document.getElementsByTagName("img")[0]
-    console.log(img.getAttribute("width"))
+    var img = document.getElementsByTagName("img")[0];
+    console.log(img.getAttribute("width"));
+    img.setAttribute("width","2000px");
+
+    var p = img.nextElementSibling;
+    p.setAttribute("align","right");
+
+    console.log(p.getAttribute("color"));
+    p.setAttribute("color","red")
 </script>
 </html>
