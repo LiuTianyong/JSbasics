@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <span id="target">Hello</span>
+        <span>!</span>
+    </div>
+</body>
+
+<script type="text/javascript">
+    var targetNode = document.getElementById("target");
+    var newNode = document.createElement("span");
+    newNode.innerText = "World"
+    targetNode.parentNode.insertBefore(newNode,targetNode.nextSibling)
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4-10消除空格结点</title>
+    <script language="javascript">
+        function myDOMInspector(){
+            var oUI=document.getElementById("sonList");
+            var DOMString="";
+            if(oUI.hasChildNodes()){
+                var oCh = oUI.childNodes;
+                for(var i=0;i<oCh.length;i++)
+                    if(oCh[i].nodeType==1)
+                        DOMString +=oCh[i].nodeName + "\n";
+            }
+            alert(DOMString);
+        }
+    </script>
+</head>
+<body onload="myDOMInspector()">
+    <ul id="sonList">
+        <li>乒乓球</li>
+        <li>羽毛球</li>
+        <li>足球</li>
+        <li>篮球</li>
+        <li>橄榄球</li>
+    </ul>
+</body>
+</html>

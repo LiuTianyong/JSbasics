@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4-15替换节点</title>
+    <script language="JavaScript">
+        function replaceP(){
+            var oOldP=document.getElementsByTagName("p")[0];
+            var oNewP=document.createElement("p");
+            var oText = document.createTextNode("我来替代原先的文字");
+            oNewP.appendChild(oText);
+            oOldP.parentNode.replaceChild(oNewP,oOldP);
+        }
+    </script>
+</head>
+<body onload="replaceP()">
+<p>这行文字被替换了</p>
+</body>
+</html>

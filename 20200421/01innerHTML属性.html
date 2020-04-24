@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript">
+			function myDOMInnerHTML() {
+				var myDIV = document.getElementById("demo");
+				console.log(myDIV.innerHTML);
+				console.log(myDIV.innerText);
+				myDIV.innerHTML = "<p align='center'>你好！</p>";
+				console.log(myDIV.innerHTML);
+				console.log(myDIV.innerText);
+				myDIV.innerHTML = "<img src='img/timg.jpg' width='300'/>";
+				console.log(myDIV.innerHTML);
+				console.log(myDIV.innerText);
+			}
+		</script>
+	</head>
+
+	<body onload="myDOMInnerHTML()">
+		<div id="demo">
+			<span>hello</span>
+			<p>bye</p>
+		</div>
+	</body>
+
+</html>

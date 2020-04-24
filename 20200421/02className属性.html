@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.ball {
+				color: red;
+				font-size: 30px;
+			}
+			.ball1 {
+				/*color: blue;*/
+				font-style: italic;
+				font-weight: bold;
+			}
+			.ball2 {
+				text-decoration: underline;
+			}
+		</style>
+		<script type="text/javascript">
+			function changeClass(){
+				var myUl = document.getElementsByClassName("ball")[0];
+				myUl.className += " ball1";
+				myUl.className += " ball2";
+			}
+		</script>
+	</head>
+	<body>
+		<ul class="ball" onclick="changeClass()">
+			<li>足球</li>
+			<li>篮球</li>
+			<li>羽毛球</li>
+		</ul>
+	</body>
+</html>
