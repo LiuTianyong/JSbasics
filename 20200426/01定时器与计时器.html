@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<!--setInterval():定时器，设置间隔时间来调用函数，即设置调用的周期性-->
+		<!--clearInterval():清除定时器-->
+		<!--setTimeout()：计时器，设置指定的时间后调用函数，即设置延迟调用-->
+		<!--clearTimeout():清除计时器-->
+		<script type="text/javascript">
+			function print(){
+				document.write("今天天期真好啊!<br />");
+			}
+			//print();
+			var timer1 = setTimeout(print,3000);
+			clearTimeout(timer1);
+			
+			var timer2 = setInterval("print()",1000);
+			clearInterval(timer2);
+			
+			var count = 0;
+			var timer2 = setInterval(function(){
+				count++;
+				document.write("今天天期真好啊!<br />");
+				if(count == 5) clearInterval(timer2);
+			},500);
+		</script>
+	</body>
+</html>

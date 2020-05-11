@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body {
+				text-align: center;
+				font-size: 40pt;
+				color: #007755;
+			}
+		</style>
+		<script type="text/javascript">
+			function loadPage(){
+				//指定倒计时结束时间
+				var endTime = new Date("2020/8/16 0:0:0");
+				var end = endTime.getTime();
+				//定义定时器，每秒钟调用一次nowTime()
+				var timer = setInterval(nowTime, 1000);
+				//定义nowTime()
+				function nowTime(){
+					var startTime = new Date();
+					var start = startTime.getTime();
+					//指定倒计时结束节点
+					if(start >= end)
+						clearInterval(timer);
+					else
+						var time = parseInt((end -start)/1000);
+					//转换时间单位
+					var days = parseInt(time/3600/24);
+					var hours = parseInt(time/3600)%24;
+					var mins = parseInt((time - days*24*3600 - hours*3600)/60);
+					var secs = time - days*24*3600 - hours*3600 - mins*60;
+					//时间标准化
+					hours = stdTime(hours);
+					mins = stdTime(mins);
+					secs = stdTime(secs);
+					//输出到页面，“\”可以用于字符串换行
+					document.body.innerHTML ="距离寒假还有：\
+						" + days+ "天" + hours + "小时" + mins + "分" + secs + "秒";
+					
+				}
+				function stdTime(t){
+					if(t<10) return "0" + t;
+					else return t;
+				}
+				
+			}
+			
+		</script>
+	</head>
+	<body onload="loadPage()">
+		
+	</body>
+</html>

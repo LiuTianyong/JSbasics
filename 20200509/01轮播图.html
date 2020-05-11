@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			div#outside {
+				width: 800px;
+				height: 300px;
+				border: 1px solid black;
+				overflow: hidden;
+				margin: 100px auto;
+			}
+			div#inside {
+				height: 300px;
+				white-space: nowrap;
+				position: relative;
+				left: 0px;
+			}
+			div#inside img {
+				height: 300px;
+				/*float: left;*/
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var outside = document.getElementById("outside");
+				var inside = document.getElementById("inside");
+				var timer = setInterval(scrollImg,5);
+				var num = 0;
+				function scrollImg(){
+					num--;
+					if(num >= -800)
+						inside.style.left = num + "px";
+					else 
+						num = 0;
+				}
+				//鼠标离开outside
+				outside.onmouseout = function(){
+					timer = setInterval(scrollImg,5);
+				}
+				//鼠标悬停于outside上方
+				outside.onmouseover = function(){
+					clearInterval(timer);
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="outside">
+			<div id="inside">
+				<img src="img/s1.jpg"/>
+				<img src="img/timg.jpg"/>
+				<img src="img/s1.jpg"/>
+				<img src="img/timg.jpg"/>
+			</div>
+		</div>
+	</body>
+</html>

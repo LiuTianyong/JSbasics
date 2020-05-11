@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//setTimeout('window.location.href="http://baidu.com";',5000);
+			/*function closePage(){
+				window.close();
+			}
+			setTimeout(closePage,5000);*/
+			window.onload = function(){
+				var i = 5; //倒计时初值
+				
+				var timer = setInterval(function(){
+					document.body.innerHTML = "本页面还有" + i + "秒关闭！";
+					i--;
+					if(i == 0) {
+						clearInterval(timer);
+						close();
+						//window.location.href = "01日历.html";
+						//open("http://baidu.com");
+					}
+				},1000);
+				
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
