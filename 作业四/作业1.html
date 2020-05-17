@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日历</title>
+    <style type="text/css">
+        * {
+            cursor: default;
+        }
+        div {
+            overflow: hidden;
+        }
+        .mainArea {
+            margin: 30px auto 0;
+            border: 1px solid #666;
+            height: 230px;
+            width: 210px;
+            background-color: #eee;
+            font-family: 'microsoft yahei';
+        }
+
+        .top {
+            height: 30px;
+            background-color: #aaa;
+        }
+
+        .top span {
+            cursor: default;
+        }
+
+        .top span:hover {
+            background-color: red;
+        }
+
+        .top .selectFlagLeft span,
+        .top .selectFlagRight span {
+            display: block;
+            float: left;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .top span.selectFlag {
+            width: 50%;
+        }
+
+        .top span.selectYear {
+            width: 60px;
+            height: 30px;
+            display: block;
+            float: left;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+
+        .top span.selectMonth {
+            display: block;
+            height: 30px;
+            margin-left: 60px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+
+        .top .selectFlagLeft {
+            float: left;
+            width: 60px;
+            height: 30px;
+        }
+
+        .top .selectFlagRight {
+            float: right;
+            width: 60px;
+            height: 30px;
+            margin-top: -30px;
+        }
+
+        .top .selectMiddle {
+            height: 30px;
+            margin-left: 60px;
+            margin-right: 60px;
+        }
+
+        .dayTb {
+            width: 100%;
+            text-align: center;
+            border-bottom: 1px solid #fff;
+        ~display: none;
+        }
+
+        .dayTb thead {
+            background-color: #675;
+            color: #eee;
+        }
+
+        .dayTb tr {
+            height: 24px;
+        }
+
+        .dayTb td {
+            border: 1px solid #ddd;
+            cursor: default;
+            background-color: #dadada;
+            font-weight: 100;
+            color: rgba(102, 102, 102, 0.6);
+        }
+        /* .dayTb td:hover, */
+        .dayTb td.currentMonth:hover,
+        .dayTb td.currentMonth.currentDay:hover,
+        .dayTb td.currentMonth.week:hover {
+            background-color: #0fa;
+        }
+
+        .dayTb td.currentMonth {
+            background-color: #c0f0f0;
+            color: #000000;
+        }
+
+        .dayTb td.currentMonth.currentDay {
+            color: #0048ff;
+            font-weight: bold;
+        }
+
+        .dayTb td.currentMonth.week {
+            color: #ff0000;
+        }
+
+        .footer {
+            line-height: 27px;
+            text-align: right;
+            padding-right: 5px;
+        }
+        .footer span {
+            border: 1px solid #bbb;
+            padding: 2px 5px;
+            font-size: 12px;
+        }
+        .selectYears {
+            height: 168px;
+            width: 100%;
+            background-color: #333;
+            text-align: center;
+            display: none;
+        }
+        .selectYears {
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .selectYears .contentYears span {
+            font-size: 16px;
+            padding: 7px 0;
+            width: 25%;
+            display: block;
+            float: left;
+        }
+        .selectYears span:hover {
+            background-color: red;
+        }
+        .selectFooter span{
+            padding: 0 6px;
+        }
+        .selectYears .returnPage {
+            font-size: 12px;
+            display: block;
+            float: right;
+            margin-top: -22px;
+            margin-right: 10px;
+            padding: 2px 6px;
+        }
+    </style>
+</head>
+<body>
+<div class="mainArea">
+    <div class="top">
+        <div class="selectFlagLeft">
+            <span class="selectFlag" id="prevYear">◄</span>
+            <span class="selectFlag" id="prevMonth"><</span>
+        </div>
+        <div class="selectMiddle">
+  <span class="selectYear" id="selectYear">
+  </span>
+            <span class="selectMonth" id="selectMonth">
+  </span>
+        </div>
+        <div class="selectFlagRight">
+            <span class="selectFlag" id="nextMonth">></span>
+            <span class="selectFlag" id="nextYear">►</span>
+        </div>
+    </div>
+    <table class="dayTb" id="dayTb" border=0 cellspacing=0 cellpadding=0>
+        <thead>
+        <tr>
+            <th>日</th>
+            <th>一</th>
+            <th>二</th>
+            <th>三</th>
+            <th>四</th>
+            <th>五</th>
+            <th>六</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="selectYears">
+        <div class="contentYears">
+            <span>2015</span>
+            <span>2014</span>
+            <span>2013</span>
+            <span>2012</span>
+            <span>2011</span>
+            <span>2010</span>
+            <span>2009</span>
+            <span>2008</span>
+            <span>2007</span>
+            <span>2006</span>
+            <span>2005</span>
+            <span>2004</span>
+            <span>2003</span>
+            <span>2002</span>
+            <span>2001</span>
+            <span>2000</span>
+        </div>
+        <div class="selectFooter">
+            <span>←</span>
+            <span>→</span>
+        </div>
+        <span class="returnPage">收起</span>
+    </div>
+    <div class="footer">
+        <span>今日</span>
+        <span>清除</span>
+        <span>确定</span>
+        <span>返回</span>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    window.onload = function() {
+
+        /**
+         * 时间数组
+         */
+        Date.prototype.toArray = function()
+        {
+            var now = this;
+            var dateAry = Array();
+            dateAry[0] = now.getFullYear();
+            dateAry[1] = (now.getMonth()+1<10?"0":"")+(now.getMonth()+1);
+            dateAry[2] = (now.getDate()<10?"0":"")+now.getDate();
+            dateAry[3] = (now.getHours()<10?"0":"")+now.getHours();
+            dateAry[4] = (now.getMinutes()<10?"0":"")+now.getMinutes();
+            dateAry[5] = (now.getSeconds()<10?"0":"")+now.getSeconds();
+            dateAry[6] = now.getDay();
+            return dateAry;
+        };
+
+        /**
+         * 当月最大天数
+         */
+        function getMaxDayOfMonth(iYear, iMonth) {
+            var newDate = new Date(iYear,iMonth,0);
+            var dateAry = newDate.toArray();
+            return parseInt(dateAry[2]);
+        };
+
+        /**
+         * 当月第一天是周几
+         */
+        function getFirstDay(iYear, iMonth) {
+            var newDate = new Date(iYear,iMonth,1);
+            var dateAry = newDate.toArray();
+            return parseInt(dateAry[6]);
+        };
+
+        var tdNodes = document.getElementsByTagName("td");
+        var selectYearNode = document.getElementById("selectYear");
+        var selectMonthNode = document.getElementById("selectMonth");
+        var prevYearNode = document.getElementById("prevYear");
+        var prevMonthNode = document.getElementById("prevMonth");
+        var nextMonthNode = document.getElementById("nextMonth");
+        var nextYearNode = document.getElementById("nextYear");
+
+        var now = new Date();
+        var ary = now.toArray();
+
+        function changeYearOrMonth(iYearDiff, iMonthDiff) {
+            var currentYear = parseInt(selectYearNode.innerHTML);
+            var currentMonth = parseInt(selectMonthNode.innerHTML);
+            var newDate = new Date(currentYear+iYearDiff,currentMonth+iMonthDiff-1,1);
+            var dateAry = newDate.toArray();
+            insertAllMonth(dateAry[0], dateAry[1]);
+        };
+
+        function insertAllMonth(iYear, iMonth) {
+            selectYearNode.innerHTML = iYear;
+            selectMonthNode.innerHTML = iMonth;
+
+            var firstDay = getFirstDay(iYear, parseInt(iMonth)-1);
+            var maxDay = getMaxDayOfMonth(iYear, iMonth);
+            var prevMonthMaxDay = getMaxDayOfMonth(iYear, parseInt(iMonth)-1);
+
+            var i = 0;
+            for(i=firstDay;i>0;i--) {
+                tdNodes[i-1].innerHTML = prevMonthMaxDay--;
+                tdNodes[i-1].className = "";
+            }
+            for(i=1+firstDay;i<=maxDay+firstDay;i++) {
+                tdNodes[i-1].innerHTML = i-firstDay;
+                if(iYear == ary[0] && iMonth == ary[1] && i-firstDay == ary[2]) {
+                    tdNodes[i-1].className = "currentMonth currentDay";
+                }else if(i%7 < 2){
+                    tdNodes[i-1].className = "currentMonth week";
+                }else {
+                    tdNodes[i-1].className = "currentMonth";
+                }
+            }
+            var one = 1;
+            for(;i<=tdNodes.length;i++) {
+                tdNodes[i-1].innerHTML = one++;
+                tdNodes[i-1].className = "";
+            }
+        };
+
+        insertAllMonth(ary[0], ary[1]);
+
+        prevYearNode.onclick = function() {
+            changeYearOrMonth(-1,0);
+        };
+        prevMonthNode.onclick = function() {
+            changeYearOrMonth(0,-1);
+        };
+        nextMonthNode.onclick = function() {
+            changeYearOrMonth(0,1);
+        };
+        nextYearNode.onclick = function() {
+            changeYearOrMonth(1,0);
+        };
+
+
+    };
+</script>
+</body>
+</html>
