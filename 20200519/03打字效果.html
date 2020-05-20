@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" />
+		
+		<script type="text/javascript">
+			var textBox = document.body.firstElementChild;
+			//textBox.value = "欢迎进入JS网页特效学习！";
+			var msg = "欢迎进入JS网页特效学习！";
+			var index = 0
+			function print(){
+				textBox.value = msg.substring(0,index+1);
+				index++;
+				if(index >= msg.length) index=0;
+			}
+			setInterval(print,200);
+		</script>
+	</body>
+</html>
