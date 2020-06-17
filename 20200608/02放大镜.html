@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			/* img {
+				border: 1px solid black;
+			} */
+			#box {
+				width: 350px;
+				height: 350px;
+				margin: 100px;
+				border: 1px solid #ccc;
+				position: relative;
+			}
+			.big {
+				width: 450px;
+				height: 450px;
+				border: 1px solid #ccc;
+				overflow: hidden;
+				/* display: none; */
+				/* 子绝父相:消除外边距的影响 */
+				position: absolute;
+				top: -1px;
+				left: 360px;
+			}
+			.small {
+				position: relative;
+			}
+			#mask {
+				width: 100px;
+				height: 100px;
+				background-color: yellow;
+				opacity: 0.4;
+				display: none;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div class="small">
+				<img src="img/001.jpg"/>
+				<div id="mask"></div>
+			</div>
+			<div class="big">
+				<img src="img/0001.jpg"/>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function popUp(){
+				var newX = window.event.pageX + document.body.scrollLeft;
+				var newY = window.event.pageY + document.body.scrollTop;
+				
+				menu = document.all.itemopen;
+				if (menu.style.display == "") {
+					menu.style.display = "none";
+				} else{
+					menu.style.display = "";
+				}
+				menu.style.pixelLeft = newX - 50;
+				menu.style.pixelTop = newY - 50;
+			}
+			
+			document.onclick = popUp;
+		</script>
+	</head>
+	<body>
+		<table id="itemopen" style="display: none;">
+			<tr>
+				<td>
+					<a href="#" class="cc">弹出菜单一</a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="#" class="cc">弹出菜单二</a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="#" class="cc">弹出菜单三</a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="#" class="cc">弹出菜单四</a>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			/*2.设置box的样式*/
+			.box{
+				/*定位*/
+				position: relative;
+				/*距上面的距离*/
+				top: 100px;
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+			}
+			
+		</style>
+		
+		
+	</head>
+	<body>
+		<!--1.设置布局 一个开始按钮 一个div box-->
+		<button id="btn">开始</button>
+		<div class="box" id="box"></div>
+
+	</body>
+</html>
+<script>
+	// 3.获取到按钮和div
+	var btn = document.getElementById("btn");
+	var box = document.getElementById("box");
+	
+	// 4.设置定时器和计数器
+	var timer = null;
+	var num = 0;
+	
+	// 7.设定目标值
+	var target = 500;
+	
+	// 5.按钮的点击事件
+	btn.onclick = function(){
+		// 6.开始定时器
+		setInterval(function(){
+			num = num + (target - num) / 10;
+			box.style.left = num + "px";
+		},30)
+	}
+	
+	
+</script>

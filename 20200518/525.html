@@ -2,9 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>发送验证码</title>
+
+    <input type="text">
 </head>
 <body>
+<input type="text"><button id="id1">发送验证码</button>
+<script type="text/javascript">
+    var id1 = document.getElementById("id1");
+    id1.onclick = function() {
+        id1.disabled = true;
+        var time = 5;
+        var timer = setInterval(myfun, 1000);
+        function myfun() {
+            time--;
+            if(time>=0) {
+                id1.innerHTML = "还剩余"+time + "秒";
+            }else{
+                id1.innerHTML = "重新发送验证码";
+                id1.disabled = false;
+                clearTimeout(timer);
+                time = 5;
+            }
+        }
+    }
+</script>
 
 </body>
 </html>

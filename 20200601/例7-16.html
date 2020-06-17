@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function(){
+				var cBox = document.getElementsByName("checkBox");
+				var btn = document.getElementsByTagName("button");
+				function chooseAll(){
+					for(var i=0; i<cBox.length; i++){
+						cBox[i].checked = "checked";
+					}
+				}
+				function chooseReverse(){
+					for(var i=0; i<cBox.length; i++){
+						if (cBox[i].checked) {
+							cBox[i].checked = "";
+						} else{
+							cBox[i].checked = "checked";
+						}
+					}
+				}
+				function chooseNone(){
+					for(var i=0; i<cBox.length; i++){
+						cBox[i].checked = "";
+					}
+				}
+				btn[0].onclick = chooseAll;
+				btn[1].onclick = chooseReverse;
+				btn[2].onclick = chooseNone;
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div>
+			<input type="checkbox" name="checkBox" checked="checked" />琴
+			<input type="checkbox" name="checkBox" />棋
+			<input type="checkbox" name="checkBox" />书
+			<input type="checkbox" name="checkBox" />画
+		</div>
+		<div>
+			<button>全选</button>
+			<button>反选</button>
+			<button>全不选</button>
+		</div>
+	</body>
+</html>

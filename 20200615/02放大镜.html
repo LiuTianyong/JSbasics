@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			/* img {
+				border: 1px solid black;
+			} */
+			#box {
+				width: 350px;
+				height: 350px;
+				margin: 100px;
+				border: 1px solid #ccc;
+				position: relative;
+			}
+			.big {
+				width: 450px;
+				height: 450px;
+				border: 1px solid #ccc;
+				overflow: hidden;
+				display: none;
+				/* 子绝父相:消除外边距的影响 */
+				position: absolute;
+				top: -1px;
+				left: 360px;
+			}
+			.big img {
+				/* 绝对定位 */
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			.small {
+				/* 相对定位 */
+				position: relative;
+			}
+			#mask {
+				width: 100px;
+				height: 100px;
+				background-color: yellow;
+				opacity: 0.4;
+				display: none;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div class="small">
+				<img src="img/001.jpg"/>
+				<div id="mask"></div>
+			</div>
+			<div class="big">
+				<img src="img/0001.jpg"/>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			//1.获取DOM元素
+			var box = document.getElementById("box");
+			var small = box.children[0];
+			var big = small.nextElementSibling;
+			var mask = small.lastElementChild;
+			var bigIMG = big.firstElementChild;
+			
+			//2.鼠标经过small时，big和mask可见
+			small.onmouseover = function(){
+				big.style.display = "block";
+				mask.style.display = "block";
+			}
+			//3.鼠标离开small时，big和mask消失
+			small.onmouseout = function(){
+				big.style.display = "none";
+				mask.style.display = "none";
+			}
+			//4.鼠标在small内部移动时
+			var x = 0, y = 0;
+			small.onmousemove = function(){
+				//4.1 获取鼠标在small内的坐标
+				var event = event || window.event;
+				x = event.clientX - this.offsetParent.offsetLeft - mask.offsetWidth/2;
+				y = event.clientY - box.offsetTop - mask.offsetHeight/2; // offsetLeft表示元素相对于父元素的左偏移(即左margin和left的和)
+				
+				//4.2 边界问题
+				if(x < 0) x = 0;
+				else if(x > small.offsetWidth - mask.offsetWidth) x = small.offsetWidth- mask.offsetWidth;
+				if(y < 0) y = 0;
+				else if(y > small.offsetHeight - mask.offsetHeight) y = small.offsetHeight - mask.offsetHeight;
+				
+				//4.3 mask跟随
+				mask.style.left = x + "px";
+				mask.style.top = y + "px";
+				
+				//4.4 bigIMG跟随
+				bigIMG.style.left = -x * big.offsetWidth/small.offsetWidth + "px";
+				bigIMG.style.top = -y * big.offsetWidth/small.offsetWidth + "px";	
+			}
+			
+		</script>
+	</body>
+</html>

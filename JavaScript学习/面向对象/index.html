@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var student = {
+        name:"来来来",
+        age:3,
+        run:function () {
+            console.log(this.name + "run ......")
+        }
+    }
+
+    var xiaoming = {
+        name: "xiaoming"
+    }
+    // 原型指向
+    xiaoming._proto_ = student;
+
+    var Bird = {
+        fly:function () {
+            console.log(this.name + "fly ......")
+        }
+    }
+
+
+</script>
+</body>
+</html>

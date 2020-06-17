@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function mouseMove() {
+				var e = event || window.event;
+				var mousePos = mouseCoords(e);
+				document.getElementById("x-value").value = mousePos.x;
+				document.getElementById("y-value").value = mousePos.y;
+			}
+
+			function mouseCoords(e) {
+				if (e.pageX || e.pageY) {
+					return {
+						x: e.pageX,
+						y: e.pageY
+					};
+				} else {
+					return {
+						x: e.clientX + document.body.scrollLeft - document.body.clientLeft,
+						y: e.clientY + document.body.scrollTop - document.body.clientTop,
+					}
+				}
+			}
+			document.onmousemove = mouseMove;
+		</script>
+	</head>
+	<body>
+		<!-- 
+			event.pageX和pageY:鼠标指针相对于文档的X,Y坐标（文档坐标），非标准属性，除IE外得到广泛支持
+			event.clientX和clientY:鼠标指针相对于浏览器窗口可视区域的X,Y坐标（窗口坐标），可视区域不包括工具栏和滚动条，IE和标准事件都支持
+			event.offsetX和offsetY：鼠标相对于事件源元素的X,Y坐标，IE支持，标准事件不支持。
+			event.screenX和screenY：鼠标相对于用户显示器屏幕左上角的X,Y坐标，标准事件和IE事件都支持
+			
+			element.clientLeft和clientTop:元素的内边距的外边缘和边框的外边缘的距离，实际就是边框的左边框宽度
+			element.clientHeight和clientWidth:返回内容的可视高度/宽度（不含边框、外边距和滚动条）
+			
+			element.scrollLeft和scrollTop:元素的显示(可见)内容与元素实际的内容的距离，只能用于设置了overflow的元素中，且overflow取值不能为visible
+			element.scrollWidth和scrollHeight：内容区域加内边距加溢出尺寸，当没有溢出时，与clientWidth和clientHeight相等（不重要）
+			
+			element.offsetLeft和offsetTop：返回元素相对于父元素的左偏移/上偏移
+			element.offsetHeight和offsetWidth：返回元素的高度/宽度（包含边框和内边距，不包含外边距）
+		-->
+		<p>X轴：<input id="x-value" type="text" /></p>
+		<p>Y轴：<input id="y-value" type="text" /></p>
+	</body>
+</html>

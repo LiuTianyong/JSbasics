@@ -3,18 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>test</title>
-    <style>
-        marquee{
-            width: 100px;
-            height: 200px;
-            border: 1px seagreen;
-        ;
-        }
-    </style>
+
 </head>
 <body>
 
-<marquee direction="up">你好</marquee>
+<script>
+    // document.write(" <table border='1'cellspacing='0'> ");
+    // document.write("<tr>");
+    // document.write(" <th>lD</th. > <th>商品编号</th>");
+    // document.write("</tr>");
+    // for (i=1;i<=3;i++) {
+    //     document.write(" <tr> ");
+    //     document.write(" <td> " + i + "</td>");
+    //     document.write(" <td> B00" + i + "</td>");
+    //     document.write(" </tr> ");
+    //     document.write(" </table>");
+    // }
+    var newDate1 = new
+    Date(2017,5,15);
+    var newDate2 = new
+    Date("April 25,2017");
+    showTime(newDate1);
+    showTime(newDate2);
+    function showTime(myDate){
+        var year =
+            myDate.getFullYear();
+        var month =
+            myDate.getMonth() + 1;
+        var date= myDate.getDate();
+        var dateStr = year + "年" + month +"月"+ date +"日";
+        document.writeln(dateStr+"<br/>");
+
+    }
+
+</script>
 </body>
 
 </html>

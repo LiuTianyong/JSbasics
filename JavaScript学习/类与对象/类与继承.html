@@ -6,8 +6,12 @@
 </head>
 <body>
 
+class 对象是在ES6以后出现的关键字，部分浏览器不支持
 
 <script>
+
+    // ES6 以后
+    // 定义一个类
     class Student{
         name = "";
         age = "";
@@ -20,7 +24,15 @@
         }
     }
 
-    student = new Student("刘天勇",18);
+    var studentLiu = new Student("刘天勇",18);
+    studentLiu.printf()
+
+    class badStudnet extends Student{
+        sorce = 60;
+        printf2() {
+            console.log(this.sorce)
+        }
+    }
 </script>
 </body>
 </html>

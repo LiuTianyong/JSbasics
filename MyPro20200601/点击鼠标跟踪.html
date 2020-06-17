@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#image {
+				width: 99px;
+				top: 0;
+				left: 0;
+				position: relative;
+			}
+		</style>
+
+
+	</head>
+	<body>
+		<img src="img/img.gif" id="image" />
+		<!--
+			pageX 文档的参考点 
+			clientX 可视区域
+			ScreenX 屏幕
+			
+			常用的事件:
+			onmouseover 经过
+			onmouseout 离开
+			onmousemove 鼠标移动
+			onmousedown 按下鼠标的时候
+			onmouseup  弹起的时候
+			
+			最大的对象：window 对象
+			document 对象
+		-->
+	</body>
+</html>
+<script>
+	// 获取图片
+	var image = document.getElementById("image");
+	var timer=null,
+		targetX = 0,
+		targetY = 0,
+		nowX = 0,
+		nowY = 0;
+	document.onclick = function(event) {
+		var event = event || window.event;
+		targetX = event.clientX - image.offsetWidth / 2;
+		targetY = event.clientY - image.offsetHeight / 2;
+	}
+	
+	function moveImg(){
+		//缓动效果
+		nowX = nowX + (targetX - nowX) / 10;
+		nowY = nowY + (targetY - nowY) / 10;
+		
+		/*if(targetX == nowX && targetY == nowY) 
+			clearInterval(timer);*/
+
+		image.style.left = nowX + "px";
+		image.style.top = nowY + "px";
+	}
+	timer = setInterval(moveImg,10);
+</script>

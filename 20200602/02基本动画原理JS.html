@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			div {
+				width: 100px;
+				height: 100px;
+				background-color: deeppink;
+				margin: 20px;
+				position: relative;	
+			}
+			/* 属性选择器 */
+			input[type="button"] {
+				margin: 20px;
+				/* border: 3px solid #FF1493; */
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>		
+		<input type="button" value="点击移动方块"/>
+		
+		<script type="text/javascript">
+			var btn = document.getElementsByTagName("input")[0];
+			var box = document.getElementsByTagName("div")[0];
+			
+			// 方法一
+			/* btn.onclick = function(){
+				box.style.left = 200 + "px";
+			} */
+			//console.log(box.offsetLeft);
+			var timer = null;
+			function move(){
+				box.offsetLeft += 1;
+				box.style.left = box.offsetLeft + "px";
+				if (box.offsetLeft >=400) 
+					clearInterval(timer);
+			}
+			btn.onclick = function(){
+				timer = setInterval(move,30);
+			}
+		</script>
+	</body>
+</html>
